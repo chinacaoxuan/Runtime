@@ -7,7 +7,7 @@
 //
 
 #import "FMDBSingle.h"
-
+#import "Actor.h"
 @implementation FMDBSingle
   static FMDBSingle *db = nil;
 + (instancetype)sharedInstace {
@@ -25,11 +25,9 @@ NSString *getPath() {
     NSString *dirPath = [docDir stringByAppendingPathComponent:@"test.db"];
     return dirPath;
 }
-
 - (void)query {
     if ([db open]) {
-        FMResultSet *set = [db executeQuery:@"SELECT * FROM actor"];
-        FMResultSet *set1 = [db executeQuery:@"select * from category"];
+        FMResultSet *set = [db executeQuery:@"select * from actor"];
         
         while ([set next]) {
             NSString *firstName = [set stringForColumn:@"first_name"];

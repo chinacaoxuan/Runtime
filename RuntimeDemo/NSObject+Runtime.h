@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <objc/message.h>
+
+@class IvarModel;
 
 @interface NSObject (Runtime)
 
 /** 获取成员变量，包括属性生成的成员变量 */
-+ (NSArray *)fetchIvarList;
++ (NSArray<IvarModel *> *)fetchIvarList;
 
 /** 获取类的属性列表，包括私有和公有属性，也包括分类中的属性 */
 + (NSArray *)fetchPropertyList;
@@ -33,5 +36,13 @@
 
 /** 类方法交换 */
 + (void)swapClassMethod:(SEL)originMethod currentMethod:(SEL)currentMethod;
+
+@end
+
+@interface IvarModel : NSObject
+/** !类型*/
+@property(copy, nonatomic) NSString *type;
+/** !名字*/
+@property(copy, nonatomic) NSString *ivarName;
 
 @end

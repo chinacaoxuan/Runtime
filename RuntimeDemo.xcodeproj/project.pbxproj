@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13109D311F40404600440F14 /* FMDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 13109D301F40404600440F14 /* FMDBTool.m */; };
+		13109D341F40467E00440F14 /* Actor.m in Sources */ = {isa = PBXBuildFile; fileRef = 13109D331F40467E00440F14 /* Actor.m */; };
 		646991491F3AB0EC0049605B /* Sakila.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 646991481F3AB0EC0049605B /* Sakila.sqlite3 */; };
 		6469914C1F3AB1AE0049605B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6469914B1F3AB1AE0049605B /* AppDelegate.m */; };
 		6469914F1F3AB1F20049605B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6469914E1F3AB1F20049605B /* ViewController.m */; };
@@ -24,6 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13109D2F1F40404600440F14 /* FMDBTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBTool.h; sourceTree = "<group>"; };
+		13109D301F40404600440F14 /* FMDBTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBTool.m; sourceTree = "<group>"; };
+		13109D321F40467E00440F14 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
+		13109D331F40467E00440F14 /* Actor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actor.m; sourceTree = "<group>"; };
+		13109D381F4049A400440F14 /* FMDBConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDBConfig.h; sourceTree = "<group>"; };
 		646991481F3AB0EC0049605B /* Sakila.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sakila.sqlite3; sourceTree = "<group>"; };
 		6469914A1F3AB1AE0049605B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6469914B1F3AB1AE0049605B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -34,7 +41,6 @@
 		8BC9BDDD7951EC9AEB6DA964 /* Pods-RuntimeDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RuntimeDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RuntimeDemo/Pods-RuntimeDemo.release.xcconfig"; sourceTree = "<group>"; };
 		9922D80B1ED68B0300F8122C /* NSObject+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
 		9922D80C1ED68B0400F8122C /* NSObject+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
-		9922D80E1ED6B4F100F8122C /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		99DEF87A1E9C82ED006CD70B /* RuntimeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RuntimeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99DEF87E1E9C82ED006CD70B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		99DEF8891E9C82ED006CD70B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,13 +108,17 @@
 				99F4008C1EDFE9D600FC12D9 /* TestClass+Category.m */,
 				9922D80B1ED68B0300F8122C /* NSObject+Runtime.h */,
 				9922D80C1ED68B0400F8122C /* NSObject+Runtime.m */,
-				9922D80E1ED6B4F100F8122C /* PrefixHeader.pch */,
 				6469914A1F3AB1AE0049605B /* AppDelegate.h */,
 				6469914B1F3AB1AE0049605B /* AppDelegate.m */,
 				6469914D1F3AB1F20049605B /* ViewController.h */,
 				6469914E1F3AB1F20049605B /* ViewController.m */,
 				646991531F3AB9AA0049605B /* FMDBSingle.h */,
 				646991541F3AB9AA0049605B /* FMDBSingle.m */,
+				13109D2F1F40404600440F14 /* FMDBTool.h */,
+				13109D301F40404600440F14 /* FMDBTool.m */,
+				13109D321F40467E00440F14 /* Actor.h */,
+				13109D331F40467E00440F14 /* Actor.m */,
+				13109D381F4049A400440F14 /* FMDBConfig.h */,
 				646991481F3AB0EC0049605B /* Sakila.sqlite3 */,
 				99DEF8891E9C82ED006CD70B /* Assets.xcassets */,
 				99DEF87D1E9C82ED006CD70B /* Supporting Files */,
@@ -269,10 +279,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13109D311F40404600440F14 /* FMDBTool.m in Sources */,
 				99F400C01EE01F7E00FC12D9 /* NSNull+Safe.m in Sources */,
 				99F4008A1EDFE99700FC12D9 /* TestClass.m in Sources */,
 				6469914C1F3AB1AE0049605B /* AppDelegate.m in Sources */,
 				99F400C21EE01F7E00FC12D9 /* NSString+Safe.m in Sources */,
+				13109D341F40467E00440F14 /* Actor.m in Sources */,
 				6469914F1F3AB1F20049605B /* ViewController.m in Sources */,
 				99F400BB1EE01F7E00FC12D9 /* NSArray+Safe.m in Sources */,
 				646991551F3AB9AA0049605B /* FMDBSingle.m in Sources */,
@@ -384,7 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				GCC_PREFIX_HEADER = "$(SRCROOT)/RuntimeDemo/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = RuntimeDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -400,7 +412,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				GCC_PREFIX_HEADER = "$(SRCROOT)/RuntimeDemo/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = RuntimeDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

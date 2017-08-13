@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "FMDBSingle.h"
+#import "FMDBTool.h"
+#import "Actor.h"
 @interface ViewController ()
 
 @end
@@ -25,17 +26,12 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [[FMDBSingle sharedInstace] query];
+    NSMutableArray *array = [[FMDBTool sharedInstance] selectFormModel:@"Actor"];
+    for (Actor *actor in array) {
+        NSLog(@"%@",actor.first_name);
+    }
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

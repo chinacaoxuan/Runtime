@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "NSObject+Runtime.h"
+#import <UIKit/UIKit.h>
 @interface TestClass : NSObject<UIWebViewDelegate>
 
 @property (nonatomic, copy) NSString *publicProperty;

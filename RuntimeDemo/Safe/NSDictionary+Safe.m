@@ -7,7 +7,7 @@
 //
 
 #import "NSDictionary+Safe.h"
-
+#import "NSObject+Runtime.h"
 @implementation NSDictionary (Safe)
 
 + (void)load

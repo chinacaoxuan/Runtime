@@ -7,7 +7,7 @@
 //
 
 #import "NSString+Safe.h"
-
+#import "NSObject+Runtime.h"
 @implementation NSString (Safe)
 
 + (void)load
