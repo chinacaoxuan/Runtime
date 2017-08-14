@@ -10,8 +10,7 @@
 
 @implementation NSArray (Safe)
 
-+ (void)load
-{
++ (void)load {
     [NSClassFromString(@"__NSPlaceholderArray") swapMethod:@selector(initWithObjects:count:)
                                              currentMethod:@selector(ls_initWithObjects:count:)];
     
@@ -25,8 +24,7 @@
                                                currentMethod:@selector(ls_singleObjectAtIndex:)];
 }
 
-- (instancetype)ls_initWithObjects:(id *)objects count:(NSUInteger)cnt
-{
+- (id)ls_initWithObjects:(id *)objects count:(NSUInteger)cnt {
     NSUInteger newCnt = 0;
     for (NSUInteger i = 0; i < cnt; i++)
     {

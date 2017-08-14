@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FMDBConfig.h"
 
 @interface FMDBTool : NSObject
 
@@ -15,5 +16,7 @@
 void configDataBase();
 
 - (NSMutableArray *)selectFormModel:(NSString *)model;
+
+- (NSMutableArray *)selectFromSql:(NSString *)sql withModel:(NSString *)Model;
 
 @end

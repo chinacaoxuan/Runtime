@@ -9,7 +9,7 @@
 #import "FMDBTool.h"
 #import <FMDB.h>
 #import "NSObject+Runtime.h"
-#import "FMDBConfig.h"
+#import "MJExtensionConst.h"
 
 static FMDBTool *tool;
 static FMDatabase *db;
@@ -33,40 +33,54 @@ static FMDatabase *db;
 }
 
 - (NSMutableArray *)selectFormModel:(NSString *)model {
+  
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@",FMDBDic[model]];
+    NSMutableArray *result = [self selectFromSql:sql withModel:model];
+    return result;
+}
+- (NSMutableArray *)selectFromSql:(NSString *)sql withModel:(NSString *)model {
     if (![db open]) {
+        NSLog(@"database is not open");
         return nil;
     }
     NSArray *ivarList = [NSClassFromString(model) fetchIvarList];
     NSMutableArray *result = [NSMutableArray array];
-    NSString *sql = [NSString stringWithFormat:@"select * from %@",FMDBDic[model]];
     NSLog(@"%@",sql);
     FMResultSet *s = [db executeQuery:sql];
     while ([s next]) {
-         id object = [[NSClassFromString(model) alloc] init];
+        id object = [[NSClassFromString(model) alloc] init];
         for (IvarModel *ivarModel in ivarList) {
+            if ([s columnIsNull:ivarModel.ivarName]) break;
+            
             if ([ivarModel.type isEqualToString:NSStringFromClass([NSString class])]) {
                 NSString *str = [s stringForColumn:ivarModel.ivarName];
                 [object setValue:str forKey:ivarModel.ivarName];
             } else if ([ivarModel.type isEqualToString:NSStringFromClass([NSDate class])]) {
                 NSDate *date = [s dateForColumn:ivarModel.ivarName];
                 [object setValue:date forKey:ivarModel.ivarName];
-            } else if ([ivarModel.type isEqualToString:@"i"] || [ivarModel.type isEqualToString:@"NSInteger"]) {
+            } else if ([ivarModel.type isEqualToString:MJPropertyTypeInt]) {
                 NSInteger intValue = [s intForColumn:ivarModel.ivarName] ? : 0;
                 [object setValue:@(intValue) forKey:ivarModel.ivarName];
-            } else if ([ivarModel.type isEqualToString:@"long"]) {
+            } else if ([ivarModel.type isEqualToString:MJPropertyTypeLong]) {
                 long longValue = [s longForColumn:ivarModel.ivarName];
                 [object setValue:@(longValue) forKey:ivarModel.ivarName];
-            } else if ([ivarModel.type isEqualToString:@"longlong"]) {
+            } else if ([ivarModel.type isEqualToString:MJPropertyTypeLongLong]) {
                 long long longlongValue = [s longLongIntForColumn:ivarModel.ivarName];
                 [object setValue:@(longlongValue) forKey:ivarModel.ivarName];
-            } else if ([ivarModel.type isEqualToString:@"BOOL"]) {
+            } else if ([ivarModel.type isEqualToString:MJPropertyTypeBOOL2] || [ivarModel.type isEqualToString:MJPropertyTypeBOOL1]) {
                 BOOL boolValue = [s boolForColumn:ivarModel.ivarName];
                 [object setValue:@(boolValue) forKey:ivarModel.ivarName];
+            } else if ([ivarModel.type isEqualToString:MJPropertyTypeFloat] || [ivarModel.type isEqualToString:MJPropertyTypeDouble]) {
+                double floatVaue = [s doubleForColumn:ivarModel.ivarName];
+                [object setValue:@(floatVaue) forKey:ivarModel.ivarName];
+            } else {
+                id value = [s objectForColumnName:ivarModel.ivarName];
+                [object setValue:value forKey:ivarModel.ivarName];
             }
-            
         }
         [result addObject:object];
     }
+    [db close];
     return result;
 }
 

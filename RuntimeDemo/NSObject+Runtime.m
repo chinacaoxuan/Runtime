@@ -58,6 +58,7 @@ static const char *getPropertyType(objc_property_t property) {
     }
     return "";
 }
+
 + (NSArray *)fetchPropertyList {
     unsigned int count = 0;
     objc_property_t *propertyList = class_copyPropertyList(self, &count);

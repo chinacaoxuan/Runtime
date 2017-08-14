@@ -9,7 +9,13 @@
 #import "ViewController.h"
 #import "FMDBTool.h"
 #import "Actor.h"
-@interface ViewController ()
+#import "TableViewCell.h"
+
+@interface ViewController ()<UITabBarDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *dataArray;
 
 @end
 
@@ -20,18 +26,48 @@
     // Do any additional setup after loading the view.
 }
 
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellid"];
+    if (!cell) {
+        cell = [[NSBundle mainBundle] loadNibNamed:@"TableViewCell" owner:nil options:nil][0];
+    }
+    Actor *actor = self.dataArray[indexPath.row];
+    cell.actor_id.text = [NSString stringWithFormat:@"%d",actor.actor_id];
+    cell.first_name.text = actor.first_name;
+    cell.last_name.text = actor.last_name;
+    cell.last_update.text = [self formatter:actor.last_update];
+    return cell;
+}
+
+- (NSString *)formatter:(NSDate *)date {
+    // 实例化NSDateFormatter
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    // 设置日期格式
+    [formatter setDateFormat:@"yyyy-mm-dd HH:mm:ss"];
+    // 获取当前日期
+    NSString *currentDateString = [formatter stringFromDate:date];
+    return currentDateString;
+}
+
+- (IBAction)actionBtnClick:(id)sender {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        self.dataArray = [[FMDBTool sharedInstance] selectFormModel:NSStringFromClass(Actor.class)];
+        self.dataArray = [[FMDBTool sharedInstance] selectFromSql:[NSString stringWithFormat:@"SELECT * FROM %@ ac WHERE ac.first_name LIKE '%%A%%'",FMDBDic[NSStringFromClass(Actor.class)]] withModel:NSStringFromClass(Actor.class)];
+        dispatch_async(dispatch_get_main_queue(), ^{
+             [self.tableView reloadData];
+        });
+    });
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    NSMutableArray *array = [[FMDBTool sharedInstance] selectFormModel:@"Actor"];
-    for (Actor *actor in array) {
-        NSLog(@"%@",actor.first_name);
-    }
-}
-
 
 
 @end
