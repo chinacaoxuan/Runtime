@@ -7,6 +7,7 @@
 //
 
 #import "FMDBTool.h"
+
 #import <FMDB.h>
 #import "NSObject+Runtime.h"
 #import "MJExtensionConst.h"
@@ -32,23 +33,32 @@ static FMDatabase *db;
     return self;
 }
 
-- (NSMutableArray *)selectFormModel:(NSString *)model {
-  
-    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@",FMDBDic[model]];
-    NSMutableArray *result = [self selectFromSql:sql withModel:model];
+- (NSMutableArray *)selectFormModel:(NSString *)className {
+    
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@",FMDBDic[className]];
+    NSMutableArray *result = [self selectFromSql:sql withModel:className];
     return result;
 }
-- (NSMutableArray *)selectFromSql:(NSString *)sql withModel:(NSString *)model {
+- (NSMutableArray *)selectFromSql:(NSString *)sql withModel:(NSString *)className {
     if (![db open]) {
         NSLog(@"database is not open");
         return nil;
     }
-    NSArray *ivarList = [NSClassFromString(model) fetchIvarList];
-    NSMutableArray *result = [NSMutableArray array];
     NSLog(@"%@",sql);
+    
     FMResultSet *s = [db executeQuery:sql];
+    NSMutableArray *result = [self excuteSql:s className:className];
+    [db close];
+    
+    return result;
+}
+
+- (NSMutableArray *)excuteSql:(FMResultSet *)s className:(NSString *)className {
+    NSMutableArray *result = [NSMutableArray array];
+    NSArray *ivarList = [NSClassFromString(className) fetchIvarList];
+    
     while ([s next]) {
-        id object = [[NSClassFromString(model) alloc] init];
+        id object = [[NSClassFromString(className) alloc] init];
         for (IvarModel *ivarModel in ivarList) {
             if ([s columnIsNull:ivarModel.ivarName]) break;
             
@@ -80,7 +90,6 @@ static FMDatabase *db;
         }
         [result addObject:object];
     }
-    [db close];
     return result;
 }
 

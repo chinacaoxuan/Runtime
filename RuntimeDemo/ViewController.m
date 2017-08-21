@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+
 #import "FMDBTool.h"
 #import "Actor.h"
 #import "TableViewCell.h"
@@ -24,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [UIImage imageNamed:@"caoxa"];
 }
 
 
@@ -45,11 +47,8 @@
 }
 
 - (NSString *)formatter:(NSDate *)date {
-    // 实例化NSDateFormatter
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    // 设置日期格式
     [formatter setDateFormat:@"yyyy-mm-dd HH:mm:ss"];
-    // 获取当前日期
     NSString *currentDateString = [formatter stringFromDate:date];
     return currentDateString;
 }

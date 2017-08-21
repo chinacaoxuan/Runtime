@@ -16,11 +16,10 @@
 		646598061F418FB0003451FE /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 646598041F418FB0003451FE /* TableViewCell.xib */; };
 		646991491F3AB0EC0049605B /* Sakila.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 646991481F3AB0EC0049605B /* Sakila.sqlite3 */; };
 		6469914C1F3AB1AE0049605B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6469914B1F3AB1AE0049605B /* AppDelegate.m */; };
+		648DD6661F4AE5B0006E87A5 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 648DD6651F4AE5B0006E87A5 /* UIImage+Extension.m */; };
 		9922D80D1ED68B0400F8122C /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 9922D80C1ED68B0400F8122C /* NSObject+Runtime.m */; };
 		99DEF87F1E9C82ED006CD70B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DEF87E1E9C82ED006CD70B /* main.m */; };
 		99DEF88A1E9C82ED006CD70B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99DEF8891E9C82ED006CD70B /* Assets.xcassets */; };
-		99F4008A1EDFE99700FC12D9 /* TestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F400891EDFE99700FC12D9 /* TestClass.m */; };
-		99F4008D1EDFE9D600FC12D9 /* TestClass+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F4008C1EDFE9D600FC12D9 /* TestClass+Category.m */; };
 		99F400BB1EE01F7E00FC12D9 /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F400AC1EE01F7E00FC12D9 /* NSArray+Safe.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		99F400BC1EE01F7E00FC12D9 /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F400AE1EE01F7E00FC12D9 /* NSDictionary+Safe.m */; };
 		99F400C01EE01F7E00FC12D9 /* NSNull+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F400B61EE01F7E00FC12D9 /* NSNull+Safe.m */; };
@@ -45,16 +44,14 @@
 		646991481F3AB0EC0049605B /* Sakila.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sakila.sqlite3; sourceTree = "<group>"; };
 		6469914A1F3AB1AE0049605B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6469914B1F3AB1AE0049605B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		648DD6641F4AE5B0006E87A5 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		648DD6651F4AE5B0006E87A5 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		8BC9BDDD7951EC9AEB6DA964 /* Pods-RuntimeDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RuntimeDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RuntimeDemo/Pods-RuntimeDemo.release.xcconfig"; sourceTree = "<group>"; };
 		9922D80B1ED68B0300F8122C /* NSObject+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
 		9922D80C1ED68B0400F8122C /* NSObject+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
 		99DEF87A1E9C82ED006CD70B /* RuntimeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RuntimeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99DEF87E1E9C82ED006CD70B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		99DEF8891E9C82ED006CD70B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		99F400881EDFE99700FC12D9 /* TestClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestClass.h; sourceTree = "<group>"; };
-		99F400891EDFE99700FC12D9 /* TestClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestClass.m; sourceTree = "<group>"; };
-		99F4008B1EDFE9D600FC12D9 /* TestClass+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestClass+Category.h"; sourceTree = "<group>"; };
-		99F4008C1EDFE9D600FC12D9 /* TestClass+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TestClass+Category.m"; sourceTree = "<group>"; };
 		99F400AB1EE01F7E00FC12D9 /* NSArray+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Safe.h"; sourceTree = "<group>"; };
 		99F400AC1EE01F7E00FC12D9 /* NSArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
 		99F400AD1EE01F7E00FC12D9 /* NSDictionary+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Safe.h"; sourceTree = "<group>"; };
@@ -82,10 +79,6 @@
 		646598001F418CA2003451FE /* object + runtime */ = {
 			isa = PBXGroup;
 			children = (
-				99F400881EDFE99700FC12D9 /* TestClass.h */,
-				99F400891EDFE99700FC12D9 /* TestClass.m */,
-				99F4008B1EDFE9D600FC12D9 /* TestClass+Category.h */,
-				99F4008C1EDFE9D600FC12D9 /* TestClass+Category.m */,
 				9922D80B1ED68B0300F8122C /* NSObject+Runtime.h */,
 				9922D80C1ED68B0400F8122C /* NSObject+Runtime.m */,
 			);
@@ -146,6 +139,8 @@
 				646598021F418FB0003451FE /* TableViewCell.h */,
 				646598031F418FB0003451FE /* TableViewCell.m */,
 				646598041F418FB0003451FE /* TableViewCell.xib */,
+				648DD6641F4AE5B0006E87A5 /* UIImage+Extension.h */,
+				648DD6651F4AE5B0006E87A5 /* UIImage+Extension.m */,
 				646991481F3AB0EC0049605B /* Sakila.sqlite3 */,
 				99DEF8891E9C82ED006CD70B /* Assets.xcassets */,
 				99DEF87D1E9C82ED006CD70B /* Supporting Files */,
@@ -308,10 +303,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				648DD6661F4AE5B0006E87A5 /* UIImage+Extension.m in Sources */,
 				13109D311F40404600440F14 /* FMDBTool.m in Sources */,
 				646597FA1F41894B003451FE /* MJExtensionConst.m in Sources */,
 				99F400C01EE01F7E00FC12D9 /* NSNull+Safe.m in Sources */,
-				99F4008A1EDFE99700FC12D9 /* TestClass.m in Sources */,
 				6469914C1F3AB1AE0049605B /* AppDelegate.m in Sources */,
 				99F400C21EE01F7E00FC12D9 /* NSString+Safe.m in Sources */,
 				646597FE1F418C8D003451FE /* ViewController.m in Sources */,
@@ -319,7 +314,6 @@
 				13109D341F40467E00440F14 /* Actor.m in Sources */,
 				99F400BB1EE01F7E00FC12D9 /* NSArray+Safe.m in Sources */,
 				9922D80D1ED68B0400F8122C /* NSObject+Runtime.m in Sources */,
-				99F4008D1EDFE9D600FC12D9 /* TestClass+Category.m in Sources */,
 				99DEF87F1E9C82ED006CD70B /* main.m in Sources */,
 				99F400BC1EE01F7E00FC12D9 /* NSDictionary+Safe.m in Sources */,
 			);
