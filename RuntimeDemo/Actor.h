@@ -18,4 +18,7 @@
 @property(copy, nonatomic) NSString *last_name;
 /** !<#(NSString *)#>*/
 @property(strong, nonatomic) NSDate *last_update;
+
+- (void)eat;
+
 @end

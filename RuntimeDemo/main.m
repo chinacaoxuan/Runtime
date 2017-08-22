@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TestClass.h"
-#import "TestClass+Category.h"
 #import "AppDelegate.h"
 
 int main(int argc, char * argv[])

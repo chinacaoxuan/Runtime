@@ -14,6 +14,7 @@
 
 static FMDBTool *tool;
 static FMDatabase *db;
+
 @implementation FMDBTool
 
 + (instancetype)sharedInstance {
@@ -24,8 +25,7 @@ static FMDatabase *db;
     return tool;
 }
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         db = [[FMDatabase alloc] initWithPath:getDBPath()];
@@ -39,6 +39,7 @@ static FMDatabase *db;
     NSMutableArray *result = [self selectFromSql:sql withModel:className];
     return result;
 }
+
 - (NSMutableArray *)selectFromSql:(NSString *)sql withModel:(NSString *)className {
     if (![db open]) {
         NSLog(@"database is not open");

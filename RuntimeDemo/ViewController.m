@@ -3,18 +3,19 @@
 //  RuntimeDemo
 //
 //  Created by Demon on 2017/8/9.
-//  Copyright © 2017年 lisong. All rights reserved.
+//  Copyright © 2017年 Demon. All rights reserved.
 //
 
 #import "ViewController.h"
 
 #import "FMDBTool.h"
 #import "Actor.h"
-#import "TableViewCell.h"
 
-@interface ViewController ()<UITabBarDelegate, UITableViewDataSource>
+#import "NSObject+Runtime.h"
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+#import <objc/message.h>
+
+@interface ViewController ()
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
@@ -24,33 +25,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    Actor *a = objc_msgSend(objc_getClass("Actor"), sel_registerName("alloc"));
+    a = objc_msgSend(a, sel_registerName("init"));
+    objc_msgSend(a, sel_registerName("eat"));
+}
+
+- (IBAction)exchangeSystemMethod:(id)sender {
     [UIImage imageNamed:@"caoxa"];
 }
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataArray.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellid"];
-    if (!cell) {
-        cell = [[NSBundle mainBundle] loadNibNamed:@"TableViewCell" owner:nil options:nil][0];
-    }
-    Actor *actor = self.dataArray[indexPath.row];
-    cell.actor_id.text = [NSString stringWithFormat:@"%d",actor.actor_id];
-    cell.first_name.text = actor.first_name;
-    cell.last_name.text = actor.last_name;
-    cell.last_update.text = [self formatter:actor.last_update];
-    return cell;
-}
-
-- (NSString *)formatter:(NSDate *)date {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-mm-dd HH:mm:ss"];
-    NSString *currentDateString = [formatter stringFromDate:date];
-    return currentDateString;
+- (IBAction)printMethod:(id)sender {
+    NSArray *methodArray = [UIViewController fetchInstanceMethodList];
+    NSArray *classMthodArray = [UIViewController fetchClassMethodList];
+    
+    NSLog(@"%@\n-----------\n%@",methodArray,classMthodArray);
 }
 
 - (IBAction)actionBtnClick:(id)sender {
@@ -58,15 +45,15 @@
 //        self.dataArray = [[FMDBTool sharedInstance] selectFormModel:NSStringFromClass(Actor.class)];
         self.dataArray = [[FMDBTool sharedInstance] selectFromSql:[NSString stringWithFormat:@"SELECT * FROM %@ ac WHERE ac.first_name LIKE '%%A%%'",FMDBDic[NSStringFromClass(Actor.class)]] withModel:NSStringFromClass(Actor.class)];
         dispatch_async(dispatch_get_main_queue(), ^{
-             [self.tableView reloadData];
+            for (Actor *actor in self.dataArray) {
+                NSMutableString *string = [[NSMutableString alloc] init];
+                for (IvarModel *ivarModel in [Actor fetchIvarList]) {
+                        [string appendFormat:@"%@\t",[actor valueForKey:ivarModel.ivarName]];
+                }
+                NSLog(@"%@\n",string);
+            }
         });
     });
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end
