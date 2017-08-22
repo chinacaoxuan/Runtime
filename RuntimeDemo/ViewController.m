@@ -13,8 +13,6 @@
 
 #import "NSObject+Runtime.h"
 
-#import <objc/message.h>
-
 @interface ViewController ()
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
@@ -28,6 +26,12 @@
     Actor *a = objc_msgSend(objc_getClass("Actor"), sel_registerName("alloc"));
     a = objc_msgSend(a, sel_registerName("init"));
     objc_msgSend(a, sel_registerName("eat"));
+}
+- (IBAction)printObjectPropertieAndType:(id)sender {
+    NSArray *array = [Actor fetchIvarList];
+    for (IvarModel *ivarModel in array) {
+        NSLog(@"%@---%@",ivarModel.ivarName,ivarModel.type);
+    }
 }
 
 - (IBAction)exchangeSystemMethod:(id)sender {
