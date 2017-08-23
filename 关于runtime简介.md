@@ -40,31 +40,8 @@ OC的函数调用成为消息发送，属于**动态调用**过程。在编译�
 
 - runtime 交换方法
 
+  ​
 
-
-####了解几个常用函数
-
-1. `id object_getIvar(id obj, Ivar ivar)`
-
-   分析： **Ivar**，即**InstanceVariable**（实例变量）。runtime对该函数的说明为：即获取一个对象**obj**的实例变量**ivar**的值。要使用这个函数，首先需要一个**Ivar**，我们使用**class_copyIvarList**函数获取一个**Ivar**数组从而获取一个**Ivar**
-
-2. `Ivar * class_copyIvarList(Class cls, unsigned int *outCount)`
-
-   说明：该函数的作用是获取传入类的所有实例变量，返回的是实例变量数组以UITextField类为例，代码示例如下
-
-```objective-c
-unsigned int outCount;
-Ivar *ivars = class_copyIvarList([UITextField class], &outCount);
-
-for (int i = 0; i < outCount; i++) {
-    Ivar ivar = ivars[i];
-}
-
-free(ivars);
-```
-说明：由于ARC只适用于Foundation等框架，对于Core Foundation 和 runtime 等并不适用，所以在使用带有copy、retain等字样的函数或方法时需要手动释放free()。
-获取到Ivar后可以利用 ivar_getName 函数获取 Ivar 的名称，用 ivar_getTypeEncoding 函数获取 Ivar 的类型编码，通过类型编码就可以知道该 Ivar 是何种类型的。
-关于类型编码。
 
 
 ####成员变量(ivars)及属性
