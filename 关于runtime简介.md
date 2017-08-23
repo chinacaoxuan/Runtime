@@ -20,6 +20,8 @@ OC的函数调用成为消息发送，属于**动态调用**过程。在编译�
 
 每一个 OC 的方法，底层必然有一个与之对应的runtime方法。
 
+
+
 ####runtime 常见作用
 
 - 动态交换两个方法的实现
@@ -41,6 +43,18 @@ OC的函数调用成为消息发送，属于**动态调用**过程。在编译�
 - runtime 交换方法
 
   ​
+
+
+#### 函数的定义
+
+- 对对象进行操作的方法一般以`object_`开头
+- 对类进行操作的方法一般以`class_`开头
+- 对类或对象的方法进行操作的方法一般以`method_`开头
+- 对成员变量进行操作的方法一般以`ivar_`开头
+- 对属性进行操作的方法一般以`property_开头`开头
+- 对协议进行操作的方法一般以`protocol_`开头
+
+根据以上的函数的前缀 可以大致了解到层级关系
 
 
 
@@ -164,7 +178,6 @@ const char * ivar_getName ( Ivar v );
 const char * ivar_getTypeEncoding ( Ivar v );
 // 获取成员变量列表
 Ivar *class_copyIvarList(Class cls, unsigned int *outCount);
-
 ```
 
 关联对象操作函数包括以下：
@@ -201,4 +214,11 @@ objc_property_attribute_t * property_copyAttributeList ( objc_property_t propert
 
 [苹果官方文档](https://developer.apple.com/documentation/objectivec/objective_c_runtime?language=objc)
 
-[参考简书](http://www.jianshu.com/p/6b905584f536)
+[参考博客](http://yulingtianxia.com/blog/2014/11/05/objective-c-runtime/)
+
+[isa混写官方文档](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/Articles/KVOImplementation.html)
+
+[Objective-C 消息发送与转发机制原理](http://yulingtianxia.com/blog/2016/06/15/Objective-C-Message-Sending-and-Forwarding/)
+
+
+

@@ -23,25 +23,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    Actor *a = objc_msgSend(objc_getClass("Actor"), sel_registerName("alloc"));
-    a = objc_msgSend(a, sel_registerName("init"));
+    Actor *a = [[Actor alloc] init];
+//    objc_msgSend(a, @selector(eat));
     objc_msgSend(a, sel_registerName("eat"));
-    
-    UITextView *textView = [[UITextView alloc] init];
-    
-    unsigned int outCount;
-    Ivar *ivars = class_copyIvarList([textView class], &outCount);
-    
-    for (int i = 0; i < outCount; i++) {
-        Ivar ivar = ivars[i];
-        NSLog(@"%s",ivar_getName(ivar));
-    }
-    free(ivars);
+
 }
 
+- (IBAction)printIvarList:(id)sender {
+    NSArray *array = [Actor fetchIvarList];
+    NSLog(@"%@",array);
+}
 
 - (IBAction)printObjectPropertieAndType:(id)sender {
-    NSArray *array = [Actor fetchIvarList];
+    NSArray *array = [Actor fetchPropertyListAndType];
     for (IvarModel *ivarModel in array) {
         NSLog(@"%@---%@",ivarModel.ivarName,ivarModel.type);
     }
@@ -61,11 +55,11 @@
 - (IBAction)actionBtnClick:(id)sender {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 //        self.dataArray = [[FMDBTool sharedInstance] selectFormModel:NSStringFromClass(Actor.class)];
-        self.dataArray = [[FMDBTool sharedInstance] selectFromSql:[NSString stringWithFormat:@"SELECT * FROM %@ ac WHERE ac.first_name LIKE '%%A%%'",FMDBDic[NSStringFromClass(Actor.class)]] withModel:NSStringFromClass(Actor.class)];
+        self.dataArray = [[FMDBTool sharedInstance] selectFromSql:[NSString stringWithFormat:@"SELECT * FROM %@ ac WHERE ac.first_name LIKE '%%B%%'",FMDBDic[NSStringFromClass([Actor class])]] withModel:NSStringFromClass([Actor class])];
         dispatch_async(dispatch_get_main_queue(), ^{
             for (Actor *actor in self.dataArray) {
                 NSMutableString *string = [[NSMutableString alloc] init];
-                for (IvarModel *ivarModel in [Actor fetchIvarList]) {
+                for (IvarModel *ivarModel in [Actor fetchPropertyListAndType]) {
                         [string appendFormat:@"%@\t",[actor valueForKey:ivarModel.ivarName]];
                 }
                 NSLog(@"%@\n",string);

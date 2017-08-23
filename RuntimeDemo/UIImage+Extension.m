@@ -13,7 +13,10 @@
 @implementation UIImage (Extension)
 
 + (void)load {
-    [UIImage swapClassMethod:@selector(imageNamed:) currentMethod:@selector(cx_imageName:)];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+         [UIImage swapClassMethod:@selector(imageNamed:) currentMethod:@selector(cx_imageName:)];
+    });
 }
 
 + (instancetype)cx_imageName:(NSString *)imageName {

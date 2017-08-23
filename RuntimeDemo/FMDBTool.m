@@ -56,7 +56,7 @@ static FMDatabase *db;
 
 - (NSMutableArray *)excuteSql:(FMResultSet *)s className:(NSString *)className {
     NSMutableArray *result = [NSMutableArray array];
-    NSArray *ivarList = [NSClassFromString(className) fetchIvarList];
+    NSArray *ivarList = [NSClassFromString(className) fetchPropertyListAndType];
     
     while ([s next]) {
         id object = [[NSClassFromString(className) alloc] init];

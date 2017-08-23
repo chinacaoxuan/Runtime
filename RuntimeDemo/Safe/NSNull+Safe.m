@@ -8,6 +8,7 @@
 
 #import "NSNull+Safe.h"
 #import "NSObject+Runtime.h"
+
 @implementation NSNull (Safe)
 
 + (void)load

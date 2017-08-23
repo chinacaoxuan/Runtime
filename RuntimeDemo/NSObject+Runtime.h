@@ -13,8 +13,11 @@
 
 @interface NSObject (Runtime)
 
-/** 获取成员变量，包括属性生成的成员变量 */
-+ (NSArray<IvarModel *> *)fetchIvarList;
+/** 获取属性列表和属性类型 */
++ (NSArray<IvarModel *> *)fetchPropertyListAndType;
+
+/*! 获得成员变量*/
++ (NSArray *)fetchIvarList;
 
 /** 获取类的属性列表，包括私有和公有属性，也包括分类中的属性 */
 + (NSArray *)fetchPropertyList;

@@ -7,11 +7,12 @@
 //
 
 #import "NSObject+Runtime.h"
+
 #import <objc/runtime.h>
 
 @implementation NSObject (Runtime)
 
-+ (NSArray<IvarModel *> *)fetchIvarList {
++ (NSArray<IvarModel *> *)fetchPropertyListAndType {
     unsigned int count = 0;
     objc_property_t *propertyList = class_copyPropertyList(self, &count);
     
@@ -57,6 +58,21 @@ static const char *getPropertyType(objc_property_t property) {
         }
     }
     return "";
+}
+
++ (NSArray *)fetchIvarList {
+    unsigned int count = 0;
+    Ivar *ivarList = class_copyIvarList(self, &count);
+    NSMutableArray *mutableList = [NSMutableArray arrayWithCapacity:count];
+    for (int i = 0; i < count; i++) {
+        const char *ivarName = ivar_getName(ivarList[i]);
+        const char *ivarType = ivar_getTypeEncoding(ivarList[i]);
+        
+        NSString *string = [NSString stringWithFormat:@"%@--%@",[NSString stringWithUTF8String:ivarName],[NSString stringWithUTF8String:ivarType]];
+        [mutableList addObject:string];
+    }
+    free(ivarList);
+    return [NSArray arrayWithArray:mutableList];
 }
 
 + (NSArray *)fetchPropertyList {

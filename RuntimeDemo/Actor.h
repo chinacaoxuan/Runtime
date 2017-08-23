@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface Actor : NSObject
+{
+    NSString *_school;
+    NSString *colloge;
+}
 
 @property(assign, nonatomic) int actor_id;
 
