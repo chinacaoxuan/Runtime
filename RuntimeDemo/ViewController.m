@@ -26,7 +26,20 @@
     Actor *a = objc_msgSend(objc_getClass("Actor"), sel_registerName("alloc"));
     a = objc_msgSend(a, sel_registerName("init"));
     objc_msgSend(a, sel_registerName("eat"));
+    
+    UITextView *textView = [[UITextView alloc] init];
+    
+    unsigned int outCount;
+    Ivar *ivars = class_copyIvarList([textView class], &outCount);
+    
+    for (int i = 0; i < outCount; i++) {
+        Ivar ivar = ivars[i];
+        NSLog(@"%s",ivar_getName(ivar));
+    }
+    free(ivars);
 }
+
+
 - (IBAction)printObjectPropertieAndType:(id)sender {
     NSArray *array = [Actor fetchIvarList];
     for (IvarModel *ivarModel in array) {
@@ -37,6 +50,7 @@
 - (IBAction)exchangeSystemMethod:(id)sender {
     [UIImage imageNamed:@"caoxa"];
 }
+
 - (IBAction)printMethod:(id)sender {
     NSArray *methodArray = [UIViewController fetchInstanceMethodList];
     NSArray *classMthodArray = [UIViewController fetchClassMethodList];

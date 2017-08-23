@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>关于runtime简介.md</title><style type='text/css'>html {overflow-x: initial !important;}.CodeMirror { height: auto; }
+<title>关于runtime简介.md</title><link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css'><style type='text/css'>html, body {overflow-x: initial !important;}.CodeMirror { height: auto; }
 .CodeMirror-scroll { overflow-y: hidden; overflow-x: auto; }
 .CodeMirror-lines { padding: 4px 0px; }
 .CodeMirror pre { }
@@ -25,7 +25,7 @@
 .cm-s-typora-default .cm-string { color: rgb(126, 134, 169); }
 .cm-s-typora-default .cm-link { color: rgb(196, 122, 15); text-decoration: underline; }
 .cm-s-typora-default .cm-variable-2, .cm-s-typora-default .cm-variable-1 { color: inherit; }
-.cm-s-typora-default .cm-overlay { font-family: monospace; }
+.cm-s-typora-default .cm-overlay { font-size: 1rem; font-family: monospace; }
 .CodeMirror.cm-s-typora-default div.CodeMirror-cursor { border-left-width: 3px; border-left-style: solid; border-left-color: rgb(228, 98, 154); }
 .cm-s-typora-default .CodeMirror-activeline-background { left: -60px; right: -30px; background-color: rgba(204, 204, 204, 0.2); background-position: initial initial; background-repeat: initial initial; }
 .cm-s-typora-default .CodeMirror-gutters { border-right-style: none; background-color: inherit; }
@@ -79,8 +79,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
 .CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
 .CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
 .CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
-.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background-image: none !important; border: none !important; background-position: initial initial !important; background-repeat: initial initial !important; }
-.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
 .CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
 .CodeMirror-lines { cursor: text; }
 .CodeMirror pre { border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-width: 0px; background-color: transparent; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; word-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; background-position: initial initial; background-repeat: initial initial; }
@@ -104,22 +102,21 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
   .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
 }
 .CodeMirror-lint-markers { width: 16px; }
-.CodeMirror-lint-tooltip { background-color: infobackground; border: 1px solid black; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; color: infotext; font-family: monospace; overflow: hidden; padding: 2px 5px; position: fixed; white-space: pre-wrap; z-index: 10000; max-width: 600px; opacity: 0; -webkit-transition: opacity 0.4s; transition: opacity 0.4s; font-size: 0.8em; }
-.CodeMirror-lint-mark-error, .CodeMirror-lint-mark-warning { background-position: 0% 100%; background-repeat: repeat no-repeat; }
+.CodeMirror-lint-tooltip { background-color: infobackground; border: 1px solid black; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; color: infotext; font-family: monospace; overflow: hidden; padding: 2px 5px; position: fixed; white-space: pre-wrap; z-index: 10000; max-width: 600px; opacity: 0; transition: opacity 0.4s; font-size: 0.8em; }
+.CodeMirror-lint-mark-error, .CodeMirror-lint-mark-warning { background-position: left bottom; background-repeat: repeat no-repeat; }
 .CodeMirror-lint-mark-error { background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAYAAAC09K7GAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sJDw4cOCW1/KIAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAHElEQVQI12NggIL/DAz/GdA5/xkY/qPKMDAwAADLZwf5rvm+LQAAAABJRU5ErkJggg==); }
-.CodeMirror-lint-marker-error, .CodeMirror-lint-marker-warning { cursor: pointer; display: inline-block; height: 16px; width: 16px; vertical-align: middle; position: relative; background-position: 50% 50%; background-repeat: no-repeat no-repeat; }
-.CodeMirror-lint-message-error, .CodeMirror-lint-message-warning { padding-left: 18px; background-position: 0% 0%; background-repeat: no-repeat no-repeat; }
+.CodeMirror-lint-marker-error, .CodeMirror-lint-marker-warning { cursor: pointer; display: inline-block; height: 16px; width: 16px; vertical-align: middle; position: relative; background-position: center center; background-repeat: no-repeat no-repeat; }
+.CodeMirror-lint-message-error, .CodeMirror-lint-message-warning { padding-left: 18px; background-position: left top; background-repeat: no-repeat no-repeat; }
 .CodeMirror-lint-marker-error, .CodeMirror-lint-message-error { background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAHlBMVEW7AAC7AACxAAC7AAC7AAAAAAC4AAC5AAD///+7AAAUdclpAAAABnRSTlMXnORSiwCK0ZKSAAAATUlEQVR42mWPOQ7AQAgDuQLx/z8csYRmPRIFIwRGnosRrpamvkKi0FTIiMASR3hhKW+hAN6/tIWhu9PDWiTGNEkTtIOucA5Oyr9ckPgAWm0GPBog6v4AAAAASUVORK5CYII=); }
 .CodeMirror-lint-marker-warning, .CodeMirror-lint-message-warning { background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAANlBMVEX/uwDvrwD/uwD/uwD/uwD/uwD/uwD/uwD/uwD6twD/uwAAAADurwD2tQD7uAD+ugAAAAD/uwDhmeTRAAAADHRSTlMJ8mN1EYcbmiixgACm7WbuAAAAVklEQVR42n3PUQqAIBBFUU1LLc3u/jdbOJoW1P08DA9Gba8+YWJ6gNJoNYIBzAA2chBth5kLmG9YUoG0NHAUwFXwO9LuBQL1giCQb8gC9Oro2vp5rncCIY8L8uEx5ZkAAAAASUVORK5CYII=); }
-.CodeMirror-lint-marker-multiple { background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAMAAADzjKfhAAAACVBMVEUAAAAAAAC/v7914kyHAAAAAXRSTlMAQObYZgAAACNJREFUeNo1ioEJAAAIwmz/H90iFFSGJgFMe3gaLZ0od+9/AQZ0ADosbYraAAAAAElFTkSuQmCC); width: 100%; height: 100%; background-position: 100% 100%; background-repeat: no-repeat no-repeat; }
+.CodeMirror-lint-marker-multiple { background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAMAAADzjKfhAAAACVBMVEUAAAAAAAC/v7914kyHAAAAAXRSTlMAQObYZgAAACNJREFUeNo1ioEJAAAIwmz/H90iFFSGJgFMe3gaLZ0od+9/AQZ0ADosbYraAAAAAElFTkSuQmCC); width: 100%; height: 100%; background-position: right bottom; background-repeat: no-repeat no-repeat; }
 
 
-:root { --bg-color: rgb(255, 255, 255); --text-color: rgb(51, 51, 51); --code-block-bg-color: inherit; }
-html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+html { font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
 a:active, a:hover { outline: 0px; }
 .in-text-selection, ::selection { background-color: rgb(181, 214, 252); text-shadow: none; background-position: initial initial; background-repeat: initial initial; }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: auto; }
 .for-image #write { padding-left: 8px; padding-right: 8px; }
 body.typora-export { padding-left: 30px; padding-right: 30px; }
 @media screen and (max-width: 500px) { 
@@ -143,16 +140,14 @@ h4 { font-size: 1.4rem; }
 h5 { font-size: 1.2rem; }
 h6 { font-size: 1rem; }
 p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
-.typora-export p { white-space: normal; }
 .mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0rem; -webkit-margin-after: 0rem; }
 .hidden { display: none; }
 .md-blockmeta { color: rgb(204, 204, 204); font-weight: bold; font-style: italic; }
 a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.701961); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; }
 #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
-tr { page-break-inside: avoid; page-break-after: auto; }
+tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
-table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; page-break-inside: auto; text-align: left; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
 table.md-table td { min-width: 80px; }
 .CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
 .CodeMirror { text-align: left; }
@@ -162,7 +157,7 @@ table.md-table td { min-width: 80px; }
 div.hr:focus { cursor: none; }
 pre { white-space: pre-wrap; }
 .CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; page-break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: var(--code-block-bg-color); position: relative !important; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit inherit; background-repeat: inherit inherit; }
 .md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
 .md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
 .md-fences.mock-cm { white-space: pre-wrap; }
@@ -179,12 +174,12 @@ blockquote > :last-child { margin-bottom: 0px; }
 blockquote > :first-child { margin-top: 0px; }
 .footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; }
 @media print { 
-  html, body { border: 1px solid transparent; height: 99%; page-break-after: avoid; page-break-before: avoid; }
+  html, body { height: 100%; }
   .typora-export * { -webkit-print-color-adjust: exact; }
-  h1, h2, h3, h4, h5, h6 { page-break-after: avoid; orphans: 2; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
   p { orphans: 4; }
   html.blink-to-pdf { font-size: 13px; }
-  .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; page-break-after: avoid; }
+  .typora-export #write { padding-left: 1cm; padding-right: 1cm; }
   .typora-export #write::after { height: 0px; }
   @page { margin: 20mm 0mm; }
 }
@@ -234,44 +229,44 @@ a.md-print-anchor { border: none !important; display: inline-block !important; p
 .MathJax_SVG .MJX-monospace { font-family: monospace; }
 .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
 .MathJax_SVG { display: inline; font-style: normal; font-weight: normal; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
-.MathJax_SVG * { -webkit-transition: none; transition: none; }
-.md-diagram-panel > svg { max-width: 100%; }
-[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
+.MathJax_SVG * { transition: none; }
 
-
-:root {
-    --side-bar-bg-color: #fafafa;
-    --control-text-color: #777;
-}
 
 @include-when-export url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
 
+/**
+ * css forked from https://github.com/GitbookIO/gitbook 
+ * www.gitbook.com
+ * Apache License
+ * https://github.com/GitbookIO/gitbook/blob/master/LICENSE
+ **/
+
 @font-face {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: normal;
-    src: local('Open Sans Regular'),url('file:///Users/Xuan/Library/Application%20Support/abnerworks.Typora/themes/github/400.woff') format('woff')
+    src: local('Open Sans Regular'),url('file:///Users/Demon/Library/Application%20Support/abnerworks.Typora/themes/github/400.woff') format('woff')
 }
 
 @font-face {
     font-family: 'Open Sans';
     font-style: italic;
     font-weight: normal;
-    src: local('Open Sans Italic'),url('file:///Users/Xuan/Library/Application%20Support/abnerworks.Typora/themes/github/400i.woff') format('woff')
+    src: local('Open Sans Italic'),url('file:///Users/Demon/Library/Application%20Support/abnerworks.Typora/themes/github/400i.woff') format('woff')
 }
 
 @font-face {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: bold;
-    src: local('Open Sans Bold'),url('file:///Users/Xuan/Library/Application%20Support/abnerworks.Typora/themes/github/700.woff') format('woff')
+    src: local('Open Sans Bold'),url('file:///Users/Demon/Library/Application%20Support/abnerworks.Typora/themes/github/700.woff') format('woff')
 }
 
 @font-face {
     font-family: 'Open Sans';
     font-style: italic;
     font-weight: bold;
-    src: local('Open Sans Bold Italic'),url('file:///Users/Xuan/Library/Application%20Support/abnerworks.Typora/themes/github/700i.woff') format('woff')
+    src: local('Open Sans Bold Italic'),url('file:///Users/Demon/Library/Application%20Support/abnerworks.Typora/themes/github/700i.woff') format('woff')
 }
 
 html {
@@ -324,7 +319,7 @@ h3:hover a.anchor,
 h4:hover a.anchor,
 h5:hover a.anchor,
 h6:hover a.anchor {
-    /*background: url("file:///Users/Xuan/Library/Application%20Support/images/modules/styleguide/para.png") no-repeat 10px center;*/
+    /*background: url("file:///Users/Demon/Library/Application%20Support/images/modules/styleguide/para.png") no-repeat 10px center;*/
     text-decoration: none;
 }
 h1 tt,
@@ -465,6 +460,7 @@ table {
 }
 table tr {
     border-top: 1px solid #cccccc;
+    background-color: white;
     margin: 0;
     padding: 0;
 }
@@ -600,10 +596,6 @@ tt {
     padding-bottom:20px;
 }
 
-.sidebar-tabs {
-    border-bottom: none;
-}
-
 #typora-quick-open {
     border: 1px solid #ddd;
     background-color: #f8f8f8;
@@ -629,122 +621,13 @@ header, .context-menu, .megamenu-content, footer{
     font-family: "Segoe UI", "Arial", sans-serif;
 }
 
-.file-node-content:hover .file-node-icon,
-.file-node-content:hover .file-node-open-state{
-    visibility: visible;
-}
-
-.mac-seamless-mode #typora-sidebar {
-    background-color: #fafafa;
-    background-color: var(--side-bar-bg-color);
-}
-
-
 
 </style>
 </head>
 <body class='typora-export' >
-<div  id='write'  class = 'is-mac'><h1><a name='header-n0' class='md-header-anchor '></a>runtime 概念</h1><p>Objective-C是基于 C 的，它为 C 添加了面向对象的特性。它将很多静态语言在编译和链接时期做的事放到了 runtime 运行时来处理，可以说runtime是我们 Objective-C 幕后工作者。
-对于 C 语言，函数的调用在编译的时候会决定调用哪个函数。</p><p>OC的函数调用成为消息发送，属于<strong>动态调用</strong>过程。在编译的时候并不能决定真正调用哪个函数，只有在真正运行的时候才会根据函数的名称找到对应的函数来调用。</p><p>事实证明：在编译阶段，OC 可以调用任何函数，即使这个函数并未实现，只要声明过就不会报错，只有当运行的时候才会报错，这是因为OC是运行时动态调用的。而 C 语言调用未实现的函数就会报错。</p><h5><a name='header-n9' class='md-header-anchor '></a>runtime 消息机制</h5><p>我们写 OC 代码，它在运行的时候也是转换成了runtime方式运行的。任何方法调用本质：就是发送一个消息（用runtime发送消息，OC 底层实现通过runtime实现）。</p><p>消息机制原理：对象根据方法编号SEL去映射表查找对应的方法实现。</p><p>每一个 OC 的方法，底层必然有一个与之对应的runtime方法。</p><h4><a name='header-n16' class='md-header-anchor '></a>runtime 常见作用</h4><ul><li>动态交换两个方法的实现</li><li>动态添加属性</li><li>实现字典转模型的自动转换</li><li>发送消息</li><li>动态添加方法</li><li>拦截并替换方法</li><li>实现 NSCoding 的自动归档和解档</li><li>runtime 常用开发应用场景「工作掌握」</li><li>runtime 交换方法</li></ul><h4><a name='header-n46' class='md-header-anchor '></a>了解几个常用函数</h4><ol start='' ><li><p>id object_getIvar(id obj, Ivar ivar)</p><p>分析： <strong>Ivar</strong>，即<strong>InstanceVariable</strong>（实例变量）。runtime对该函数的说明为：即获取一个对象<strong>obj</strong>的实例变量<strong>ivar</strong>的值。要使用这个函数，首先需要一个<strong>Ivar</strong>，我们使用<strong>class_copyIvarList</strong>函数获取一个<strong>Ivar</strong>数组从而获取一个<strong>Ivar</strong></p></li><li><p>Ivar * class_copyIvarList(Class cls, unsigned int *outCount)</p><p>说明：该函数的作用是获取传入类的所有实例变量，返回的是实例变量数组以UITextField类为例，代码示例如下</p></li></ol><pre class='md-fences mock-cm' style='display:block;position:relative'>unsigned int outCount;
-Ivar *ivars = class_copyIvarList([UITextField class], &amp;outCount);
-
-for (int i = 0; i &lt; outCount; i++) {
-    Ivar ivar = ivars[i];
-}
-
-free(ivars);</pre><p>说明：由于ARC只适用于Foundation等框架，对于Core Foundation 和 runtime 等并不适用，所以在使用带有copy、retain等字样的函数或方法时需要手动释放free()。
+<div  id='write'  class = 'is-mac'><h1><a name='header-c5' class='md-header-anchor '></a>runtime</h1><div class='md-toc' mdtype='toc'><p class="md-toc-content"><span class="md-toc-item md-toc-h1" data-ref="c5"><a class="md-toc-inner" href="#header-c5">runtime</a></span><span class="md-toc-item md-toc-h4" data-ref="c10"><a class="md-toc-inner" href="#header-c10">runtime介绍</a></span><span class="md-toc-item md-toc-h4" data-ref="c17"><a class="md-toc-inner" href="#header-c17">runtime 消息机制</a></span><span class="md-toc-item md-toc-h4" data-ref="c24"><a class="md-toc-inner" href="#header-c24">runtime 常见作用</a></span><span class="md-toc-item md-toc-h4" data-ref="c54"><a class="md-toc-inner" href="#header-c54">了解几个常用函数</a></span><span class="md-toc-item md-toc-h4" data-ref="c72"><a class="md-toc-inner" href="#header-c72">成员变量(ivars)及属性</a></span><span class="md-toc-item md-toc-h4" data-ref="c95"><a class="md-toc-inner" href="#header-c95">方法的操作</a></span><span class="md-toc-item md-toc-h4" data-ref="c114"><a class="md-toc-inner" href="#header-c114">成员变量、属性的操作方法</a></span></p></div><p></p><h4><a name='header-c10' class='md-header-anchor '></a>runtime介绍</h4><p>Objective-C是基于 C 的，它为 C 添加了面向对象的特性。它将很多静态语言在编译和链接时期做的事放到了 runtime 运行时来处理，可以说runtime是我们 Objective-C 幕后工作者。对于 C 语言，函数的调用在编译的时候会决定调用哪个函数。</p><p>OC的函数调用成为消息发送，属于<strong>动态调用</strong>过程。在编译的时候并不能决定真正调用哪个函数，只有在真正运行的时候才会根据函数的名称找到对应的函数来调用。</p><p>事实证明：在编译阶段，OC 可以调用任何函数，即使这个函数并未实现，只要声明过就不会报错，只有当运行的时候才会报错，这是因为OC是运行时动态调用的。而 C 语言调用未实现的函数就会报错。</p><h4><a name='header-c17' class='md-header-anchor '></a>runtime 消息机制</h4><p>我们写 OC 代码，它在运行的时候也是转换成了runtime方式运行的。任何方法调用本质：就是发送一个消息（用runtime发送消息，OC 底层实现通过runtime实现）。</p><p>消息机制原理：对象根据方法编号SEL去映射表查找对应的方法实现。</p><p>每一个 OC 的方法，底层必然有一个与之对应的runtime方法。</p><h4><a name='header-c24' class='md-header-anchor '></a>runtime 常见作用</h4><ul><li>动态交换两个方法的实现</li><li>动态添加属性</li><li>实现字典转模型的自动转换</li><li>发送消息</li><li>动态添加方法</li><li>拦截并替换方法</li><li>实现 NSCoding 的自动归档和解档</li><li>runtime 常用开发应用场景「工作掌握」</li><li>runtime 交换方法</li></ul><h4><a name='header-c54' class='md-header-anchor '></a>了解几个常用函数</h4><ol start='' ><li><p><code>id object_getIvar(id obj, Ivar ivar)</code></p><p>分析： <strong>Ivar</strong>，即<strong>InstanceVariable</strong>（实例变量）。runtime对该函数的说明为：即获取一个对象<strong>obj</strong>的实例变量<strong>ivar</strong>的值。要使用这个函数，首先需要一个<strong>Ivar</strong>，我们使用<strong>class_copyIvarList</strong>函数获取一个<strong>Ivar</strong>数组从而获取一个<strong>Ivar</strong></p></li><li><p><code>Ivar * class_copyIvarList(Class cls, unsigned int *outCount)</code></p><p>说明：该函数的作用是获取传入类的所有实例变量，返回的是实例变量数组以UITextField类为例，代码示例如下</p></li></ol><pre class="md-fences md-end-block" lang="objective-c"> <div class="CodeMirror cm-s-inner CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"></div><div class="CodeMirror-hscrollbar" style="left: 0px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; min-height: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable-3">unsigned</span> <span class="cm-variable-3">int</span> <span class="cm-variable">outCount</span>;</span></pre></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">Ivar</span> <span class="cm-operator">*</span><span class="cm-variable">ivars</span> <span class="cm-operator">=</span> <span class="cm-variable">class_copyIvarList</span>([<span class="cm-variable">UITextField</span> <span class="cm-variable">class</span>], <span class="cm-operator">&amp;</span><span class="cm-variable">outCount</span>);</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">for</span> (<span class="cm-variable-3">int</span> <span class="cm-variable">i</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>; <span class="cm-variable">i</span> <span class="cm-operator">&lt;</span> <span class="cm-variable">outCount</span>; <span class="cm-variable">i</span><span class="cm-operator">++</span>) {</span></pre><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-variable">Ivar</span> <span class="cm-variable">ivar</span> <span class="cm-operator">=</span> <span class="cm-variable">ivars</span>[<span class="cm-variable">i</span>];</span></pre><pre class=""><span style="padding-right: 0.1px;">}</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">free</span>(<span class="cm-variable">ivars</span>);</span></pre></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 0px;"></div><div class="CodeMirror-gutters" style="display: none; height: 176px;"></div></div></div></pre><p>说明：由于ARC只适用于Foundation等框架，对于Core Foundation 和 runtime 等并不适用，所以在使用带有copy、retain等字样的函数或方法时需要手动释放free()。
 获取到Ivar后可以利用 ivar_getName 函数获取 Ivar 的名称，用 ivar_getTypeEncoding 函数获取 Ivar 的类型编码，通过类型编码就可以知道该 Ivar 是何种类型的。
-关于类型编码。</p><h4><a name='header-n64' class='md-header-anchor '></a>成员变量(ivars)及属性</h4><p>在objc_class中，所有的成员变量、属性的信息是放在链表ivars中的。ivars是一个数组，数组中每个元素是指向Ivar(变量信息)的指针。runtime提供了丰富的函数来操作这一字段。大体上可以分为以下几类</p><ul><li>成员变量操作函数，主要包含以下函数：</li></ul><pre class='md-fences mock-cm' style='display:block;position:relative'>// 获取类中指定名称实例成员变量的信息
-
-Ivar class_getInstanceVariable ( Class cls, const char *name );
-
-// 获取类成员变量的信息
-
-Ivar class_getClassVariable ( Class cls, const char *name );
-
-// 添加成员变量
-
-BOOL class_addIvar ( Class cls, const char *name, size_t size, uint8_t alignment, const char *types );
-
-// 获取整个成员变量列表
-
-Ivar * class_copyIvarList ( Class cls, unsigned int *outCount );</pre><p><strong>class_getInstanceVariable</strong>函数，它返回一个指向包含name指定的成员变量信息的objc_ivar结构体的指针(Ivar)。</p><p><strong>class_getClassVariable</strong>函数，目前没有找到关于Objective-C中类变量的信息，一般认为Objective-C不支持类变量。注意，返回的列表不包含父类的成员变量和属性。</p><p>Objective-C不支持往已存在的类中添加实例变量，因此不管是系统库提供的提供的类，还是我们自定义的类，都无法动态添加成员变量。但如果我们通过运行时来创建一个类的话，又应该如何给它添加成员变量呢？这时我们就可以使用<strong>class_addIvar</strong>函数了。不过需要注意的是，这个方法只能在<strong>objc_allocateClassPair</strong>函数与<strong>objc_registerClassPair</strong>之间调用。另外，这个类也不能是元类。成员变量的按字节最小对齐量是1&lt;&lt;alignment。这取决于ivar的类型和机器的架构。如果变量的类型是指针类型，则传递log2(sizeof(pointer_type))。</p><p><strong>class_copyIvarList</strong>函数，它返回一个指向成员变量信息的数组，数组中每个元素是指向该成员变量信息的objc_ivar结构体的指针。这个数组不包含在父类中声明的变量。outCount指针返回数组的大小。需要注意的是，我们必须使用free()来释放这个数组。</p><ul><li>属性操作函数，主要包含以下函数：</li></ul><pre class='md-fences mock-cm' style='display:block;position:relative'>// 获取指定的属性
-
-objc_property_t class_getProperty ( Class cls, const char *name );
-
-// 获取属性列表
-
-objc_property_t * class_copyPropertyList ( Class cls, unsigned int *outCount );
-
-// 为类添加属性
-
-BOOL class_addProperty ( Class cls, const char *name, const objc_property_attribute_t *attributes, unsigned int attributeCount );
-
-// 替换类的属性
-
-void class_replaceProperty ( Class cls, const char *name, const objc_property_attribute_t *attributes, unsigned int attributeCount );
-</pre><h4><a name='header-n87' class='md-header-anchor '></a>方法的操作</h4><p>方法操作主要有以下函数</p><pre class='md-fences mock-cm' style='display:block;position:relative'>// 添加方法
-BOOL class_addMethod ( Class cls, SEL name, IMP imp, const char *types );
-
-// 获取实例方法
-Method class_getInstanceMethod ( Class cls, SEL name );
-
-// 获取类方法
-Method class_getClassMethod ( Class cls, SEL name );
-
-// 获取所有方法的数组
-Method * class_copyMethodList ( Class cls, unsigned int *outCount );
-
-// 替代方法的实现
-IMP class_replaceMethod ( Class cls, SEL name, IMP imp, const char *types );
-
-// 返回方法的具体实现
-IMP class_getMethodImplementation ( Class cls, SEL name );
-IMP class_getMethodImplementation_stret ( Class cls, SEL name );
-
-// 类实例是否响应指定的selector
-BOOL class_respondsToSelector ( Class cls, SEL sel );
-</pre><p>解释一下SEL 和 IMP的区别
-SEL : 类成员方法的指针，但不同于C语言中的函数指针，函数指针直接保存了方法的地址，但SEL只是方法编号。SEL methodSel = @selector(eat)</p><p>IMP:一个函数指针,保存了方法的地址</p><p>这里有两种方法获取IMP：</p><ul><li>method_getImplementation(Method)</li><li>methodForSelector(SEL)</li></ul><pre class='md-fences mock-cm' style='display:block;position:relative'>#import &lt;objc/runtime.h&gt;
-- (void) temp
-{
-    // 第一种方法
-    SEL sel = @selector(eat:);
-    Method method = class_getInstanceMethod([self class], sel);
-    IMP imp = method_getImplementation(method);
-
-    // 第二种方法
-    SEL sel = @selector(eat:);
-    IMP imp = [self methodForSelector:sel];
-}</pre><h4><a name='header-n106' class='md-header-anchor '></a>成员变量、属性的操作方法</h4><p>成员变量操作包含以下函数：</p><pre class='md-fences mock-cm' style='display:block;position:relative'>// 获取成员变量名
-const char * ivar_getName ( Ivar v );
-
-// 获取成员变量类型编码
-const char * ivar_getTypeEncoding ( Ivar v );
-// 获取成员变量列表
-Ivar *class_copyIvarList(Class cls, unsigned int *outCount);
-
-</pre><p>关联对象操作函数包括以下：</p><pre class='md-fences mock-cm' style='display:block;position:relative'>// 设置关联对象
-void objc_setAssociatedObject ( id object, const void *key, id value, objc_AssociationPolicy policy );
-
-// 获取关联对象
-id objc_getAssociatedObject ( id object, const void *key );
-
-// 移除关联对象
-void objc_removeAssociatedObjects ( id object );</pre><p>属性操作相关函数包括以下：</p><pre class='md-fences mock-cm' style='display:block;position:relative'>// 获取属性名
-const char * property_getName ( objc_property_t property );
-
-// 获取属性特性描述字符串
-const char * property_getAttributes ( objc_property_t property );
-
-// 获取属性中指定的特性
-char * property_copyAttributeValue ( objc_property_t property, const char *attributeName );
-
-//获得属性列表
-objc_property_t *class_copyPropertyList(Class cls, unsigned int *outCount)
-
-// 获取属性的特性列表
-objc_property_attribute_t * property_copyAttributeList ( objc_property_t property, unsigned int *outCount );
-</pre><p></p><p><a href='http://www.jianshu.com/p/6b905584f536'>参考简书</a></p></div>
+关于类型编码。</p><h4><a name='header-c72' class='md-header-anchor '></a>成员变量(ivars)及属性</h4><p>在objc_class中，所有的成员变量、属性的信息是放在链表ivars中的。ivars是一个数组，数组中每个元素是指向Ivar(变量信息)的指针。runtime提供了丰富的函数来操作这一字段。大体上可以分为以下几类</p><ul><li>成员变量操作函数，主要包含以下函数：</li></ul><pre class="md-fences md-end-block" lang="objective-c"> <div class="CodeMirror cm-s-inner CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"></div><div class="CodeMirror-hscrollbar" style="left: 0px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; min-height: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 获取类中指定名称实例成员变量的信息</span></span></pre></div><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">Ivar</span> <span class="cm-variable">class_getInstanceVariable</span> ( <span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-keyword">const</span> <span class="cm-variable-3">char</span> <span class="cm-operator">*</span><span class="cm-variable">name</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 获取类成员变量的信息</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">Ivar</span> <span class="cm-variable">class_getClassVariable</span> ( <span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-keyword">const</span> <span class="cm-variable-3">char</span> <span class="cm-operator">*</span><span class="cm-variable">name</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 添加成员变量</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">BOOL</span> <span class="cm-variable">class_addIvar</span> ( <span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-keyword">const</span> <span class="cm-variable-3">char</span> <span class="cm-operator">*</span><span class="cm-variable">name</span>, <span class="cm-variable-3">size_t</span> <span class="cm-variable">size</span>, <span class="cm-variable">uint8_t</span> <span class="cm-variable">alignment</span>, <span class="cm-keyword">const</span> <span class="cm-variable-3">char</span> <span class="cm-operator">*</span><span class="cm-variable">types</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 获取整个成员变量列表</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">Ivar</span> <span class="cm-operator">*</span> <span class="cm-variable">class_copyIvarList</span> ( <span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-variable-3">unsigned</span> <span class="cm-variable-3">int</span> <span class="cm-operator">*</span><span class="cm-variable">outCount</span> );</span></pre></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 0px;"></div><div class="CodeMirror-gutters" style="display: none; height: 352px;"></div></div></div></pre><p><strong>class_getInstanceVariable</strong>函数，它返回一个指向包含name指定的成员变量信息的objc_ivar结构体的指针(Ivar)。</p><p><strong>class_getClassVariable</strong>函数，目前没有找到关于Objective-C中类变量的信息，一般认为Objective-C不支持类变量。注意，返回的列表不包含父类的成员变量和属性。</p><p>Objective-C不支持往已存在的类中添加实例变量，因此不管是系统库提供的提供的类，还是我们自定义的类，都无法动态添加成员变量。但如果我们通过运行时来创建一个类的话，又应该如何给它添加成员变量呢？这时我们就可以使用<strong>class_addIvar</strong>函数了。不过需要注意的是，这个方法只能在<strong>objc_allocateClassPair</strong>函数与<strong>objc_registerClassPair</strong>之间调用。另外，这个类也不能是元类。成员变量的按字节最小对齐量是1&lt;&lt;alignment。这取决于ivar的类型和机器的架构。如果变量的类型是指针类型，则传递log2(sizeof(pointer_type))。</p><p><strong>class_copyIvarList</strong>函数，它返回一个指向成员变量信息的数组，数组中每个元素是指向该成员变量信息的objc_ivar结构体的指针。这个数组不包含在父类中声明的变量。outCount指针返回数组的大小。需要注意的是，我们必须使用free()来释放这个数组。</p><ul><li>属性操作函数，主要包含以下函数：</li></ul><pre class="md-fences md-end-block" lang="objective-c"> <div class="CodeMirror cm-s-inner CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"></div><div class="CodeMirror-hscrollbar" style="left: 0px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; min-height: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 获取指定的属性</span></span></pre></div><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">objc_property_t</span> <span class="cm-variable">class_getProperty</span> ( <span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-keyword">const</span> <span class="cm-variable-3">char</span> <span class="cm-operator">*</span><span class="cm-variable">name</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 获取属性列表</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">objc_property_t</span> <span class="cm-operator">*</span> <span class="cm-variable">class_copyPropertyList</span> ( <span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-variable-3">unsigned</span> <span class="cm-variable-3">int</span> <span class="cm-operator">*</span><span class="cm-variable">outCount</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 为类添加属性</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">BOOL</span> <span class="cm-variable">class_addProperty</span> ( <span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-keyword">const</span> <span class="cm-variable-3">char</span> <span class="cm-operator">*</span><span class="cm-variable">name</span>, <span class="cm-keyword">const</span> <span class="cm-variable">objc_property_attribute_t</span> <span class="cm-operator">*</span><span class="cm-variable">attributes</span>, <span class="cm-variable-3">unsigned</span> <span class="cm-variable-3">int</span> <span class="cm-variable">attributeCount</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 替换类的属性</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable-3">void</span> <span class="cm-variable">class_replaceProperty</span> ( <span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-keyword">const</span> <span class="cm-variable-3">char</span> <span class="cm-operator">*</span><span class="cm-variable">name</span>, <span class="cm-keyword">const</span> <span class="cm-variable">objc_property_attribute_t</span> <span class="cm-operator">*</span><span class="cm-variable">attributes</span>, <span class="cm-variable-3">unsigned</span> <span class="cm-variable-3">int</span> <span class="cm-variable">attributeCount</span> );</span></pre></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 0px;"></div><div class="CodeMirror-gutters" style="display: none; height: 374px;"></div></div></div></pre><h4><a name='header-c95' class='md-header-anchor '></a>方法的操作</h4><p>方法操作主要有以下函数</p><pre class="md-fences md-end-block" lang="objective-c"> <div class="CodeMirror cm-s-inner CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"></div><div class="CodeMirror-hscrollbar" style="left: 0px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; min-height: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 添加方法</span></span></pre></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">BOOL</span> <span class="cm-variable">class_addMethod</span> ( <span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-keyword">SEL</span> <span class="cm-variable">name</span>, <span class="cm-keyword">IMP</span> <span class="cm-variable">imp</span>, <span class="cm-keyword">const</span> <span class="cm-variable-3">char</span> <span class="cm-operator">*</span><span class="cm-variable">types</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 获取实例方法</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">Method</span> <span class="cm-variable">class_getInstanceMethod</span> ( <span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-keyword">SEL</span> <span class="cm-variable">name</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 获取类方法</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">Method</span> <span class="cm-variable">class_getClassMethod</span> ( <span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-keyword">SEL</span> <span class="cm-variable">name</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 获取所有方法的数组</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">Method</span> <span class="cm-operator">*</span> <span class="cm-variable">class_copyMethodList</span> ( <span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-variable-3">unsigned</span> <span class="cm-variable-3">int</span> <span class="cm-operator">*</span><span class="cm-variable">outCount</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 替代方法的实现</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">IMP</span> <span class="cm-variable">class_replaceMethod</span> ( <span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-keyword">SEL</span> <span class="cm-variable">name</span>, <span class="cm-keyword">IMP</span> <span class="cm-variable">imp</span>, <span class="cm-keyword">const</span> <span class="cm-variable-3">char</span> <span class="cm-operator">*</span><span class="cm-variable">types</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 返回方法的具体实现</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">IMP</span> <span class="cm-variable">class_getMethodImplementation</span> ( <span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-keyword">SEL</span> <span class="cm-variable">name</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">IMP</span> <span class="cm-variable">class_getMethodImplementation_stret</span> ( <span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-keyword">SEL</span> <span class="cm-variable">name</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 类实例是否响应指定的selector</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">BOOL</span> <span class="cm-variable">class_respondsToSelector</span> ( <span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-keyword">SEL</span> <span class="cm-variable">sel</span> );</span></pre></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 0px;"></div><div class="CodeMirror-gutters" style="display: none; height: 462px;"></div></div></div></pre><p>解释一下SEL 和 IMP的区别
+SEL : 类成员方法的指针，但不同于C语言中的函数指针，函数指针直接保存了方法的地址，但SEL只是方法编号。<code>SEL methodSel = @selector(eat)</code></p><p>IMP:一个函数指针,保存了方法的地址</p><p>这里有两种方法获取IMP：</p><ul><li><code>method_getImplementation(Method)</code></li><li><code>methodForSelector(SEL)</code></li></ul><pre class="md-fences md-end-block" lang="objective-c"> <div class="CodeMirror cm-s-inner CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"></div><div class="CodeMirror-hscrollbar" style="left: 0px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; min-height: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-meta">#import &lt;objc/runtime.h&gt;</span></span></pre></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-operator">-</span> (<span class="cm-variable-3">void</span>) <span class="cm-variable">temp</span></span></pre><pre class=""><span style="padding-right: 0.1px;">{</span></pre><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-comment">// 第一种方法</span></span></pre><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-keyword">SEL</span> <span class="cm-variable">sel</span> <span class="cm-operator">=</span> <span class="cm-keyword">@selector</span>(<span class="cm-variable">eat</span>:);</span></pre><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-variable">Method</span> <span class="cm-variable">method</span> <span class="cm-operator">=</span> <span class="cm-variable">class_getInstanceMethod</span>([<span class="cm-keyword">self</span> <span class="cm-variable">class</span>], <span class="cm-variable">sel</span>);</span></pre><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-keyword">IMP</span> <span class="cm-variable">imp</span> <span class="cm-operator">=</span> <span class="cm-variable">method_getImplementation</span>(<span class="cm-variable">method</span>);</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-comment">// 第二种方法</span></span></pre><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-keyword">SEL</span> <span class="cm-variable">sel</span> <span class="cm-operator">=</span> <span class="cm-keyword">@selector</span>(<span class="cm-variable">eat</span>:);</span></pre><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-keyword">IMP</span> <span class="cm-variable">imp</span> <span class="cm-operator">=</span> [<span class="cm-keyword">self</span> <span class="cm-variable">methodForSelector</span>:<span class="cm-variable">sel</span>];</span></pre><pre class=""><span style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 0px;"></div><div class="CodeMirror-gutters" style="display: none; height: 264px;"></div></div></div></pre><h4><a name='header-c114' class='md-header-anchor '></a>成员变量、属性的操作方法</h4><p>成员变量操作包含以下函数：</p><pre class="md-fences md-end-block" lang="objective-c"> <div class="CodeMirror cm-s-inner CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"></div><div class="CodeMirror-hscrollbar" style="left: 0px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; min-height: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 获取成员变量名</span></span></pre></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-variable-3">char</span> <span class="cm-operator">*</span> <span class="cm-variable">ivar_getName</span> ( <span class="cm-variable">Ivar</span> <span class="cm-variable">v</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 获取成员变量类型编码</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-variable-3">char</span> <span class="cm-operator">*</span> <span class="cm-variable">ivar_getTypeEncoding</span> ( <span class="cm-variable">Ivar</span> <span class="cm-variable">v</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 获取成员变量列表</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">Ivar</span> <span class="cm-operator">*</span><span class="cm-variable">class_copyIvarList</span>(<span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-variable-3">unsigned</span> <span class="cm-variable-3">int</span> <span class="cm-operator">*</span><span class="cm-variable">outCount</span>);</span></pre></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 0px;"></div><div class="CodeMirror-gutters" style="display: none; height: 154px;"></div></div></div></pre><p>关联对象操作函数包括以下：</p><pre class="md-fences md-end-block" lang="objective-c"> <div class="CodeMirror cm-s-inner CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"></div><div class="CodeMirror-hscrollbar" style="left: 0px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; min-height: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 设置关联对象</span></span></pre></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable-3">void</span> <span class="cm-variable">objc_setAssociatedObject</span> ( <span class="cm-keyword">id</span> <span class="cm-variable">object</span>, <span class="cm-keyword">const</span> <span class="cm-variable-3">void</span> <span class="cm-operator">*</span><span class="cm-variable">key</span>, <span class="cm-keyword">id</span> <span class="cm-variable">value</span>, <span class="cm-variable">objc_AssociationPolicy</span> <span class="cm-variable">policy</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 获取关联对象</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">id</span> <span class="cm-variable">objc_getAssociatedObject</span> ( <span class="cm-keyword">id</span> <span class="cm-variable">object</span>, <span class="cm-keyword">const</span> <span class="cm-variable-3">void</span> <span class="cm-operator">*</span><span class="cm-variable">key</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 移除关联对象</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable-3">void</span> <span class="cm-variable">objc_removeAssociatedObjects</span> ( <span class="cm-keyword">id</span> <span class="cm-variable">object</span> );</span></pre></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 0px;"></div><div class="CodeMirror-gutters" style="display: none; height: 198px;"></div></div></div></pre><p>属性操作相关函数包括以下：</p><pre class="md-fences md-end-block" lang="objective-c"> <div class="CodeMirror cm-s-inner CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"></div><div class="CodeMirror-hscrollbar" style="left: 0px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; min-height: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 获取属性名</span></span></pre></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-variable-3">char</span> <span class="cm-operator">*</span> <span class="cm-variable">property_getName</span> ( <span class="cm-variable">objc_property_t</span> <span class="cm-variable">property</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 获取属性特性描述字符串</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-variable-3">char</span> <span class="cm-operator">*</span> <span class="cm-variable">property_getAttributes</span> ( <span class="cm-variable">objc_property_t</span> <span class="cm-variable">property</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 获取属性中指定的特性</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable-3">char</span> <span class="cm-operator">*</span> <span class="cm-variable">property_copyAttributeValue</span> ( <span class="cm-variable">objc_property_t</span> <span class="cm-variable">property</span>, <span class="cm-keyword">const</span> <span class="cm-variable-3">char</span> <span class="cm-operator">*</span><span class="cm-variable">attributeName</span> );</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">//获得属性列表</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">objc_property_t</span> <span class="cm-operator">*</span><span class="cm-variable">class_copyPropertyList</span>(<span class="cm-keyword">Class</span> <span class="cm-variable">cls</span>, <span class="cm-variable-3">unsigned</span> <span class="cm-variable-3">int</span> <span class="cm-operator">*</span><span class="cm-variable">outCount</span>)</span></pre><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">// 获取属性的特性列表</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">objc_property_attribute_t</span> <span class="cm-operator">*</span> <span class="cm-variable">property_copyAttributeList</span> ( <span class="cm-variable">objc_property_t</span> <span class="cm-variable">property</span>, <span class="cm-variable-3">unsigned</span> <span class="cm-variable-3">int</span> <span class="cm-operator">*</span><span class="cm-variable">outCount</span> );</span></pre></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 0px;"></div><div class="CodeMirror-gutters" style="display: none; height: 352px;"></div></div></div></pre><p><a href='https://developer.apple.com/documentation/objectivec/objective_c_runtime?language=objc'>苹果官方文档</a></p><p><a href='http://www.jianshu.com/p/6b905584f536'>参考简书</a></p></div>
 </body>
 </html>

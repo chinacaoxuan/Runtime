@@ -1,12 +1,18 @@
-#runtime 概念
-Objective-C是基于 C 的，它为 C 添加了面向对象的特性。它将很多静态语言在编译和链接时期做的事放到了 runtime 运行时来处理，可以说runtime是我们 Objective-C 幕后工作者。
-对于 C 语言，函数的调用在编译的时候会决定调用哪个函数。
+#runtime
+
+[TOC]
+
+
+
+#### runtime介绍
+
+Objective-C是基于 C 的，它为 C 添加了面向对象的特性。它将很多静态语言在编译和链接时期做的事放到了 runtime 运行时来处理，可以说runtime是我们 Objective-C 幕后工作者。对于 C 语言，函数的调用在编译的时候会决定调用哪个函数。
 
 OC的函数调用成为消息发送，属于**动态调用**过程。在编译的时候并不能决定真正调用哪个函数，只有在真正运行的时候才会根据函数的名称找到对应的函数来调用。
 
 事实证明：在编译阶段，OC 可以调用任何函数，即使这个函数并未实现，只要声明过就不会报错，只有当运行的时候才会报错，这是因为OC是运行时动态调用的。而 C 语言调用未实现的函数就会报错。
 
-#####runtime 消息机制
+#### runtime 消息机制
 
 我们写 OC 代码，它在运行的时候也是转换成了runtime方式运行的。任何方法调用本质：就是发送一个消息（用runtime发送消息，OC 底层实现通过runtime实现）。
 
@@ -38,15 +44,15 @@ OC的函数调用成为消息发送，属于**动态调用**过程。在编译�
 
 ####了解几个常用函数
 
-1. id object_getIvar(id obj, Ivar ivar)
+1. `id object_getIvar(id obj, Ivar ivar)`
 
    分析： **Ivar**，即**InstanceVariable**（实例变量）。runtime对该函数的说明为：即获取一个对象**obj**的实例变量**ivar**的值。要使用这个函数，首先需要一个**Ivar**，我们使用**class_copyIvarList**函数获取一个**Ivar**数组从而获取一个**Ivar**
 
-2. Ivar * class_copyIvarList(Class cls, unsigned int *outCount)
- 
+2. `Ivar * class_copyIvarList(Class cls, unsigned int *outCount)`
+
    说明：该函数的作用是获取传入类的所有实例变量，返回的是实例变量数组以UITextField类为例，代码示例如下
 
-```
+```objective-c
 unsigned int outCount;
 Ivar *ivars = class_copyIvarList([UITextField class], &outCount);
 
@@ -67,7 +73,7 @@ free(ivars);
 
 - 成员变量操作函数，主要包含以下函数：
 
-```
+```objective-c
 // 获取类中指定名称实例成员变量的信息
 
 Ivar class_getInstanceVariable ( Class cls, const char *name );
@@ -96,7 +102,7 @@ Objective-C不支持往已存在的类中添加实例变量，因此不管是系
 
 - 属性操作函数，主要包含以下函数：
 
-```
+```objective-c
 // 获取指定的属性
 
 objc_property_t class_getProperty ( Class cls, const char *name );
@@ -112,7 +118,6 @@ BOOL class_addProperty ( Class cls, const char *name, const objc_property_attrib
 // 替换类的属性
 
 void class_replaceProperty ( Class cls, const char *name, const objc_property_attribute_t *attributes, unsigned int attributeCount );
-
 ```
 
 
@@ -120,7 +125,7 @@ void class_replaceProperty ( Class cls, const char *name, const objc_property_at
 
 方法操作主要有以下函数
 
-```
+```objective-c
 // 添加方法
 BOOL class_addMethod ( Class cls, SEL name, IMP imp, const char *types );
 
@@ -142,21 +147,20 @@ IMP class_getMethodImplementation_stret ( Class cls, SEL name );
 
 // 类实例是否响应指定的selector
 BOOL class_respondsToSelector ( Class cls, SEL sel );
-
 ```
 
 解释一下SEL 和 IMP的区别
-SEL : 类成员方法的指针，但不同于C语言中的函数指针，函数指针直接保存了方法的地址，但SEL只是方法编号。SEL methodSel = @selector(eat)
+SEL : 类成员方法的指针，但不同于C语言中的函数指针，函数指针直接保存了方法的地址，但SEL只是方法编号。`SEL methodSel = @selector(eat)`
 
 IMP:一个函数指针,保存了方法的地址
- 
+
 这里有两种方法获取IMP：
 
-- method_getImplementation(Method)
+- `method_getImplementation(Method)`
 
-- methodForSelector(SEL)
+- `methodForSelector(SEL)`
 
-```
+```objective-c
 #import <objc/runtime.h>
 - (void) temp
 {
@@ -175,7 +179,7 @@ IMP:一个函数指针,保存了方法的地址
 
 成员变量操作包含以下函数：
 
-```
+```objective-c
 // 获取成员变量名
 const char * ivar_getName ( Ivar v );
 
@@ -184,12 +188,11 @@ const char * ivar_getTypeEncoding ( Ivar v );
 // 获取成员变量列表
 Ivar *class_copyIvarList(Class cls, unsigned int *outCount);
 
-
 ```
 
 关联对象操作函数包括以下：
 
-```
+```objective-c
 // 设置关联对象
 void objc_setAssociatedObject ( id object, const void *key, id value, objc_AssociationPolicy policy );
 
@@ -202,7 +205,7 @@ void objc_removeAssociatedObjects ( id object );
 
 属性操作相关函数包括以下：
 
-```
+```objective-c
 // 获取属性名
 const char * property_getName ( objc_property_t property );
 
@@ -217,9 +220,8 @@ objc_property_t *class_copyPropertyList(Class cls, unsigned int *outCount)
 
 // 获取属性的特性列表
 objc_property_attribute_t * property_copyAttributeList ( objc_property_t property, unsigned int *outCount );
-
 ```
 
-
+[苹果官方文档](https://developer.apple.com/documentation/objectivec/objective_c_runtime?language=objc)
 
 [参考简书](http://www.jianshu.com/p/6b905584f536)
