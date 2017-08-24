@@ -62,6 +62,14 @@
                         <action selector="printIvarList:" destination="-1" eventType="touchUpInside" id="rg2-wI-F4a"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qf5-p2-VFS">
+                    <rect key="frame" x="192" y="175" width="62" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="动态创建"/>
+                    <connections>
+                        <action selector="showRuntime:" destination="-1" eventType="touchUpInside" id="Bwp-vG-zRQ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>

@@ -34,13 +34,13 @@ OC的函数调用成为消息发送，属于**动态调用**过程。在编译�
 
 - 动态添加方法
 
-- 拦截并替换方法
+- method swizzling (方法混写)
+
+- isa swizzling (KVO应用)
 
 - 实现 NSCoding 的自动归档和解档
 
 - runtime 常用开发应用场景「工作掌握」
-
-- runtime 交换方法
 
   ​
 

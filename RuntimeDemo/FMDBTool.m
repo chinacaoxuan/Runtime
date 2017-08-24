@@ -85,7 +85,7 @@ static FMDatabase *db;
                 double floatVaue = [s doubleForColumn:ivarModel.ivarName];
                 [object setValue:@(floatVaue) forKey:ivarModel.ivarName];
             } else {
-                id value = [s objectForColumnName:ivarModel.ivarName];
+                id value = [s objectForColumn:ivarModel.ivarName];
                 [object setValue:value forKey:ivarModel.ivarName];
             }
         }
